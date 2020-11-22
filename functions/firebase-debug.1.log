@@ -1,0 +1,24 @@
+[debug] [2020-11-16T01:03:25.084Z] ----------------------------------------------------------------------
+[debug] [2020-11-16T01:03:25.087Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Kelvin\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions --debug
+[debug] [2020-11-16T01:03:25.088Z] CLI Version:   8.10.0
+[debug] [2020-11-16T01:03:25.088Z] Platform:      win32
+[debug] [2020-11-16T01:03:25.088Z] Node Version:  v14.10.1
+[debug] [2020-11-16T01:03:25.089Z] Time:          Sun Nov 15 2020 19:03:25 GMT-0600 (Central Standard Time)
+[debug] [2020-11-16T01:03:25.090Z] ----------------------------------------------------------------------
+[debug] [2020-11-16T01:03:25.090Z] 
+[debug] [2020-11-16T01:03:25.102Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-11-16T01:03:25.106Z] > authorizing via signed-in user
+[debug] [2020-11-16T01:03:25.129Z] [iam] checking project clone-a8a38 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2020-11-16T01:03:25.138Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/clone-a8a38:testIamPermissions  
+ {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2020-11-16T01:03:25.546Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 16 Nov 2020 01:03:37 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=166","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-11-16T01:03:25.554Z] >>> HTTP REQUEST POST https://iam.googleapis.com/v1/projects/clone-a8a38/serviceAccounts/clone-a8a38@appspot.gserviceaccount.com:testIamPermissions  
+ {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2020-11-16T01:03:25.948Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 16 Nov 2020 01:03:38 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'clone-a8a38'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[error] 
+[error] Error: functions predeploy error: Command terminated with non-zero exit code2
