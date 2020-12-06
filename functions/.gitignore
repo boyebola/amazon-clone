@@ -1,1 +1,4 @@
 node_modules/
+.env
+firebase-debug.1.log
+firebase-debug.log

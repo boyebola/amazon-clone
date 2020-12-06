@@ -1,10 +1,9 @@
-const functions = require("firebase-functions");
-const express = require("express");
-const cors = require("cors");
-const { response } = require("express");
-const stripe = require("stripe")(
-  "sk_test_51HW71oCGyWHwXlh3V2UwXmLdGw8dnqcJAJF06vN2C659bqvz67CCNUYfa1YoYhGUsF9YVMYwDbi5NqilJQOdS7Dy00XxmJvXic"
-);
+const functions = require('firebase-functions');
+const express = require('express');
+const dotenv = require('dotenv');
+const cors = require('cors');
+const { response } = require('express');
+const stripe = require('stripe')(`${process.env.STRIPE_KEY}`);
 
 //API
 
@@ -16,14 +15,14 @@ app.use(cors({ origin: true }));
 app.use(express.json());
 
 //APi routes
-app.get("/", (request, response) => response.status(200).send("hello world"));
+app.get('/', (request, response) => response.status(200).send('hello world'));
 
-app.post("/payments/create", async (request, response) => {
+app.post('/payments/create', async (request, response) => {
   const total = request.query.total;
 
   const paymentIntent = await stripe.paymentIntents.create({
     amount: total,
-    currency: "cad",
+    currency: 'cad',
   });
 
   response.status(201).send({
@@ -31,7 +30,7 @@ app.post("/payments/create", async (request, response) => {
   });
 });
 
-app.post("/payments/update", async (request, response) => {
+app.post('/payments/update', async (request, response) => {
   const total = request.query.total;
   const paymentIntentId = request.query.id;
 
