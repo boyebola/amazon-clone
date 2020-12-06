@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { db } from "./firebase";
-import "./css/Orders.css";
-import { useStateValue } from "./StateProvider";
-import Order from "./Order";
+import React, { useEffect, useState } from 'react';
+import { db } from './firebase';
+import './css/Orders.css';
+import { useStateValue } from './StateProvider';
+import Order from './Order';
 
 function Orders() {
   const [{ user }, dispatch] = useStateValue();
@@ -10,10 +10,10 @@ function Orders() {
 
   useEffect(() => {
     if (user) {
-      db.collection("users")
+      db.collection('users')
         .doc(user?.uid)
-        .collection("orders")
-        .orderBy("created", "desc")
+        .collection('orders')
+        .orderBy('created', 'desc')
         .onSnapshot((snapshot) => {
           setOrders(
             snapshot.docs.map((doc) => ({
@@ -27,7 +27,11 @@ function Orders() {
 
   return (
     <div className="orders">
-      <h1>Your Orders</h1>
+      <h1>
+        {user
+          ? 'Your Orders'
+          : "You are not logged in so order records won't show"}
+      </h1>
       <div className="orders_order">
         {orders?.map((order) => (
           <Order order={order} />

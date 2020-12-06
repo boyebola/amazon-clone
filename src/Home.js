@@ -1,6 +1,6 @@
-import React from "react";
-import "./css/Home.css";
-import Product from "./Product";
+import React from 'react';
+import './css/Home.css';
+import Product from './Product';
 
 function Home() {
   return (
@@ -21,41 +21,41 @@ function Home() {
           />
           <Product
             id="2"
-            title="The len info2"
-            price={20.99}
-            image="https://m.media-amazon.com/images/I/41Rr75iWkvL._AC_SL260_.jpg"
+            title="Apple AirPods with Charging Case"
+            price={177.99}
+            image="https://images-na.ssl-images-amazon.com/images/I/71NTi82uBEL._AC_SX522_.jpg"
             rating={3}
           />
         </div>
         <div className="home_row">
           <Product
             id="3"
-            title="The len info3"
-            price={30.99}
-            image="https://m.media-amazon.com/images/I/41Rr75iWkvL._AC_SL260_.jpg"
+            title="Fire TV Cube, hands-free with Alexa built in, 4K Ultra HD, streaming media player, released 2019"
+            price={149.99}
+            image="https://images-na.ssl-images-amazon.com/images/I/415eDd-iH9L._AC_SX425_.jpg"
             rating={3}
           />
           <Product
             id="4"
-            title="The len info4"
-            price={40.99}
-            image="https://m.media-amazon.com/images/I/41Rr75iWkvL._AC_SL260_.jpg"
+            title="Fire HD 10 Tablet"
+            price={159.99}
+            image="https://images-na.ssl-images-amazon.com/images/I/61-ngp6SbZL._AC_SX425_.jpg"
             rating={3}
           />
           <Product
             id="5"
-            title="The len info5"
-            price={59.99}
-            image="https://m.media-amazon.com/images/I/41Rr75iWkvL._AC_SL260_.jpg"
+            title="Fitbit Inspire 2 Health & Fitness Tracker "
+            price={129.99}
+            image="https://images-na.ssl-images-amazon.com/images/I/71wPLzgLNYL._AC_SX679_.jpg"
             rating={3}
           />
         </div>
         <div className="home_row">
           <Product
             id="6"
-            title="The len info6"
-            price={69.99}
-            image="https://m.media-amazon.com/images/I/41Rr75iWkvL._AC_SL260_.jpg"
+            title="Essential Oil Diffuser"
+            price={41.99}
+            image="https://images-na.ssl-images-amazon.com/images/I/71qj%2BxNeIVL._AC_SX425_.jpg"
             rating={3}
           />
         </div>

@@ -1,9 +1,10 @@
 const functions = require('firebase-functions');
 const express = require('express');
-const dotenv = require('dotenv');
 const cors = require('cors');
 const { response } = require('express');
-const stripe = require('stripe')(`${process.env.STRIPE_KEY}`);
+const stripe = require('stripe')(
+  'sk_test_51HW71oCGyWHwXlh3V2UwXmLdGw8dnqcJAJF06vN2C659bqvz67CCNUYfa1YoYhGUsF9YVMYwDbi5NqilJQOdS7Dy00XxmJvXic'
+);
 
 //API
 

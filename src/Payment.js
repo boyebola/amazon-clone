@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import CheckoutProduct from "./CheckoutProduct";
-import { useStateValue } from "./StateProvider";
-import { Link, useHistory } from "react-router-dom";
-import CurrencyFormat from "react-currency-format";
-import { getBasketTotal } from "./reducer";
-import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import "./css/Payment.css";
-import axios from "./axios";
-import { db } from "./firebase";
+import React, { useState, useEffect } from 'react';
+import CheckoutProduct from './CheckoutProduct';
+import { useStateValue } from './StateProvider';
+import { Link, useHistory } from 'react-router-dom';
+import CurrencyFormat from 'react-currency-format';
+import { getBasketTotal } from './reducer';
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import './css/Payment.css';
+import axios from './axios';
+import { db } from './firebase';
 
 function Payment() {
   const [{ basket, user, paymentInfoId }, dispatch] = useStateValue();
@@ -16,7 +16,7 @@ function Payment() {
   const history = useHistory();
 
   const [succeeded, setSucceeded] = useState(false);
-  const [processing, setProcessing] = useState("");
+  const [processing, setProcessing] = useState('');
   const [error, setError] = useState(null);
   const [disabled, setDisabled] = useState(true);
   const [clientSecret, setClientSecret] = useState(true);
@@ -28,19 +28,19 @@ function Payment() {
       if (basket && total > 0) {
         if (!paymentInfoId) {
           const response = await axios({
-            method: "post",
+            method: 'post',
             url: `/payments/create?total=${(total * 100).toFixed()}`,
           });
 
           dispatch({
-            type: "SET_PAYMENT_INTENT",
+            type: 'SET_PAYMENT_INTENT',
             id: response.data.paymentIntentInfo.id,
           });
 
           setClientSecret(response.data.paymentIntentInfo.client_secret);
         } else {
           const response = await axios({
-            method: "post",
+            method: 'post',
             url: `/payments/update?id=${paymentInfoId}&total=${(
               total * 100
             ).toFixed()}`,
@@ -64,9 +64,9 @@ function Payment() {
         },
       })
       .then(({ paymentIntent }) => {
-        db.collection("users")
-          .doc(user?.uid)
-          .collection("orders")
+        db.collection('users')
+          .doc(user ? user.uid : 'guest')
+          .collection('orders')
           .doc(paymentIntent.id)
           .set({
             basket: basket,
@@ -79,21 +79,21 @@ function Payment() {
         setProcessing(false);
 
         dispatch({
-          type: "SET_PAYMENT_INTENT",
+          type: 'SET_PAYMENT_INTENT',
           id: null,
         });
 
         dispatch({
-          type: "EMPTY_BASKET",
+          type: 'EMPTY_BASKET',
         });
 
-        history.replace("/orders");
+        history.replace('/orders');
       });
   };
 
   const handleChange = (event) => {
     setDisabled(event.empty);
-    setError(event.error ? event.error.message : "");
+    setError(event.error ? event.error.message : '');
   };
 
   return (
@@ -137,12 +137,12 @@ function Payment() {
                   renderText={(value) => <h3>Order Total: {value}</h3>}
                   decimalScale={2}
                   value={getBasketTotal(basket)}
-                  displayType={"text"}
+                  displayType={'text'}
                   thousandSeparator={true}
-                  prefix={"$"}
+                  prefix={'$'}
                 />
                 <button disabled={processing || disabled || succeeded}>
-                  <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
+                  <span>{processing ? <p>Processing</p> : 'Buy Now'}</span>
                 </button>
               </div>
             </form>
